@@ -1,0 +1,69 @@
+<section class="container_cadastros fomulario ff-inter">
+    <header class="header">
+      <h2>{{ titulo }}</h2>
+    </header>
+    <form [formGroup]="formulario">
+      <label for="key">Key</label>
+      <input
+        type="textarea"
+        class="input"
+        id="key"
+        formControlName="key"
+        placeholder="Digite o key"
+        [disabled]="true"
+      >
+  
+      <label for="pt">Português</label>
+      <input
+        type="text"
+        class="input"
+        id="pt"
+        formControlName="pt"
+        placeholder="Digite o Português"
+      >
+      <div class="mensagem__erro"
+       *ngIf="formulario.get('pt')?.errors?.['required'] && formulario.get('pt')?.touched">
+        Português é Obrigatório!
+      </div>
+  
+      <label for="en">Inglês</label>
+      <input
+        type="text"
+        class="input"
+        id="en"
+        formControlName="en"
+        placeholder="Digite o Inglês"
+      >
+      <div class="mensagem__erro"
+       *ngIf="formulario.get('en')?.errors?.['required'] && formulario.get('en')?.touched">
+        Inglês é Obrigatório!
+      </div>
+  
+      <label for="es">Espanhol</label>
+      <input
+        type="text"
+        class="input"
+        id="es"
+        formControlName="es"
+        placeholder="Digite o Espanhol"
+      >
+      <div class="messagem__erro"
+       *ngIf="formulario.get('es')?.errors?.['required'] && formulario.get('es')?.touched">
+        Espanhol é Obrigatório!
+      </div>
+  
+      <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-wrap gap-3">
+        <button
+        [disabled]="!formulario.valid"
+        (click)="id ? editar() : criar()"
+          [ngClass]="habilitarBotao()"
+          id="btnSalvar"
+          >Salvar
+        </button>
+        <button (click)="cancelar()" class="botao">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </section>
+  

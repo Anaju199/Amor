@@ -1,0 +1,8 @@
+main {
+  /* background: url(/assets/imagens/backgroundBranco.png); */
+  background: radial-gradient(circle, #cd2e2e 10%, #801111 100%);
+  background-size: cover;
+  min-height: 60vh;
+  position: relative;
+  padding-bottom: 150px;
+}

@@ -1,0 +1,50 @@
+
+<br/>
+<br/>
+<div class="container love-wrapper">
+  <div class="d-flex flex-column align-items-center">
+    <h1 class="titulo">Eu te amo...</h1>
+  </div>
+  <br/>
+  <div class="scatter-grid love-wrapper" *ngIf="listaFotos.length > 0, else semFotos">
+    <div *ngFor="let foto of listaFotos">
+       <img 
+      [src]="foto.foto"
+      class="random-img"
+      style="height: 15rem; width: 15rem;"
+      [style.transform]="'rotate(' + foto.rotate + 'deg)'"
+    />
+    </div>
+    <div class="hearts"></div>
+  </div>
+  <div class="hearts"></div>
+</div>
+
+
+<div class="ff-inter centralizar">
+  <input 
+    id="senha"
+    class="input"
+    type="password"
+    [(ngModel)]="senhaDigitada"
+    placeholder="Digite a senha"
+  >
+  <button (click)="validarSenha()" class="btn">
+    Entrar
+  </button>
+  <div class="mensagem__erro" *ngIf="erroSenha">
+    Senha incorreta!
+  </div>
+</div>
+
+
+<!-- <img src="{{link +  foto.foto }}" class="random-img"> -->
+  
+ 
+  <ng-template #semFotos>
+    <div class="ff-inter centralizar">
+      <p>Não há fotos cadastradas.</p>
+    </div>
+  </ng-template>
+
+ 
