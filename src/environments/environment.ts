@@ -4,13 +4,13 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'https://anajulia.pythonanywhere.com',
+  // apiUrl: 'https://anajulia.pythonanywhere.com/aj_',
   apiUrl: 'http://127.0.0.1:8000/aj_',
   apiUrlPagSeguro: 'https://sandbox.api.pagseguro.com',
   apiUrlMercadoPago: 'https://api.mercadopago.com',
   linkSite: 'http://localhost:4200',
-  apiUrlImg: 'http://127.0.0.1:8000/',
-  // apiUrlImg: 'https://anajulia.pythonanywhere.com/',
+  // apiUrlImg: 'http://127.0.0.1:8000/',
+  apiUrlImg: 'https://anajulia.pythonanywhere.com/',
   login: 'aj_login'
 };
 

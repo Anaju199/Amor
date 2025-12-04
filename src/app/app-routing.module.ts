@@ -8,6 +8,8 @@ import { ErroContatoComponent } from './componentes/erro-contato/erro-contato.co
 import { SobreMimComponent } from './paginas/sobre-mim/sobre-mim.component';
 import { TreinosComponent } from './paginas/treinos/treinos.component';
 import { AlbumComponent } from './paginas/album/album.component';
+import { CadastrarEditarFotosComponent } from './paginas/administrador/cadastrar-editar-fotos/cadastrar-editar-fotos.component';
+import { ListarFotosComponent } from './paginas/administrador/listar-fotos/listar-fotos.component';
 
 const routes: Routes = [
   {
@@ -40,8 +42,16 @@ const routes: Routes = [
     component: SobreMimComponent
   },
   {
-    path: 'treinos',
-    component: TreinosComponent
+    path: 'listarFotos',
+    component: ListarFotosComponent
+  },
+  {
+    path: 'cadastrarEditarFotos',
+    component: CadastrarEditarFotosComponent
+  },
+  {
+    path: 'cadastrarEditarFotos/:id',
+    component: CadastrarEditarFotosComponent
   },
   {
     path: 'erro',

@@ -32,7 +32,7 @@ export class PaginaInicialComponent implements OnInit {
   }
 
   validarSenha() {
-    if (this.senhaDigitada.trim().toLowerCase() === "ana") {
+    if (this.senhaDigitada.trim().toLowerCase() === "2807") {
       this.erroSenha = false;
       this.router.navigate(['/album']);
     } else {

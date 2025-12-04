@@ -1,0 +1,10 @@
+/* listar-fotos.component.css */
+.container {
+  transform-origin: center;
+  transition: transform 0.7s ease;
+}
+
+/* classe aplicada quando girando */
+.container.efeito-giro {
+  transform: perspective(900px) rotateX(360deg) scale(0.95);
+}

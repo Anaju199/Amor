@@ -21,6 +21,8 @@ import { ListarPerguntasComponent } from './paginas/administrador/perguntas/list
 import { CadastrarEditarPerguntasComponent } from './paginas/administrador/perguntas/cadastrar-editar-perguntas/cadastrar-editar-perguntas.component';
 import { AutoResizeTextareaDirective } from './directives/auto-resize-textarea.directive';
 import { AlbumComponent } from './paginas/album/album.component';
+import { CadastrarEditarFotosComponent } from './paginas/administrador/cadastrar-editar-fotos/cadastrar-editar-fotos.component';
+import { ListarFotosComponent } from './paginas/administrador/listar-fotos/listar-fotos.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -43,7 +45,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ListarPerguntasComponent,
     CadastrarEditarPerguntasComponent,
     AutoResizeTextareaDirective,
-    AlbumComponent
+    AlbumComponent,
+    CadastrarEditarFotosComponent,
+    ListarFotosComponent
   ],
   imports: [
     BrowserModule,

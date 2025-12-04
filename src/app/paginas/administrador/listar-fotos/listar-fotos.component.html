@@ -1,0 +1,35 @@
+
+<div class="row mx-auto" style="padding-top: 1rem;">
+    <div class="col-md-2 align-self-center">
+      <i class="fa-solid fa-arrow-left"></i><a href="/album" class="add">Voltar para album</a>
+    </div>
+  <div class="col-md-3 mx-auto">
+    <h1 class="titulo text-end">Nossas fotos</h1>
+  </div>
+  <div class="col-md-2 align-self-center">
+    <i class="fa-regular fa-plus"></i><a href="/cadastrarEditarFotos" class="add"> Adicionar Fotos</a>
+  </div>
+</div>
+<div class="container">
+    <div class="photo-gallery">
+        <div class="photo-card" *ngFor="let foto of lista">
+            <button class="thumb-btn" aria-label="Editar">
+               <img [src]="link + foto.foto" [alt]="foto.descricao || 'Foto'" loading="lazy" />
+            </button>
+
+            <div class="caption">
+                <a  href="/cadastrarEditarFotos/{{ foto.id }}" class="caption-link">{{ foto.descricao || 'Sem legenda' }}</a>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</div>

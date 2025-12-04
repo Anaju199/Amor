@@ -3,6 +3,7 @@ export interface Foto {
   descricao: string
   foto: string
   capa: string
+  data: string
   rotate: number
 }
 

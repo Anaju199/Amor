@@ -1,17 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FotosService } from 'src/app/service/fotos.service';
 import { Foto } from 'src/app/service/tipos';
 import { environment } from 'src/environments/environment';
 
-
 @Component({
-  selector: 'app-album',
-  templateUrl: './album.component.html',
-  styleUrls: ['./album.component.css']
+  selector: 'app-listar-fotos',
+  templateUrl: './listar-fotos.component.html',
+  styleUrls: ['./listar-fotos.component.css']
 })
-export class AlbumComponent {
-
+export class ListarFotosComponent {
   @Input() lista: Foto[] = []
 
   link: string = environment.apiUrlImg
@@ -21,24 +19,11 @@ export class AlbumComponent {
     private router: Router
   ) {}
 
-  
+
   ngOnInit(): void {
     this.service.listar(false).subscribe((lista) => {
       this.lista = lista
     });
-  }
-
-  voltarInicio() {
-    this.router.navigate(['/']); // Ajuste a rota da aba inicial se necessário
-  }
-
-  girando = false;
-
-  girarSite() {
-    this.girando = true;
-
-    // remove o efeito depois do tempo do transition (700ms)
-    setTimeout(() => this.girando = false, 700);
   }
 
 }

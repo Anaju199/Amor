@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Foto } from './tipos';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class FotosService {
-private readonly API = environment.apiUrl + 'fotos_amor/'
+private readonly API = environment.apiUrl + 'fotos_amor'
   private readonly API_LISTA = environment.apiUrl + 'lista_fotos/'
 
   constructor(private http: HttpClient) { }
@@ -20,7 +20,15 @@ private readonly API = environment.apiUrl + 'fotos_amor/'
       params = params.set("capa", filtro)
     }
 
-    return this.http.get<Foto[]>(this.API, {params})
+    const url = `${this.API}/`
+    return this.http.get<Foto[]>(url, { params }).pipe(
+      map(fotos =>
+        fotos.map(foto => ({
+          ...foto,
+          foto: foto.foto.replace('http://127.0.0.1:8000/', '').replace('https://anajulia.pythonanywhere.com/','') // remove o domínio
+        }))
+      )
+    );
   }
 
   listarTodos(pagina: number, itensPorPagina: number): Observable<any> {

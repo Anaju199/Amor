@@ -1,12 +1,20 @@
 
+
+    
 <br/>
 
-  <div class="d-flex flex-column align-items-center">
-    <h1 class="titulo">Nosso album de fotos</h1>
+<div class="row mx-auto">
+  <div class="col-md-7 mx-auto">
+    <h1 class="titulo text-end">Nosso album de fotos</h1>
   </div>
+  <div class="col-md-2 align-self-center">
+    <i class="fa-regular fa-plus"></i><a href="/listarFotos" class="add"> Adicionar/Editar Fotos</a>
+  </div>
+</div>
+<div class="container" #wrapper [class.efeito-giro]="girando">
 
-<br/>
-<div class="row">
+  <br/>
+  <div class="row">
     <div *ngIf="lista.length > 0, else semFotos">
       <div class="carousel-item" *ngFor="let foto of lista; let i = index" [class.active]="i === 0">
         <div id="carousel{{ foto.id }}" class="carousel  carousel-white slide" data-bs-ride="carousel">
@@ -21,12 +29,13 @@
 
          <div class="carousel-inner" style="max-height: 780px; margin: 0 auto;">
             <div class="carousel-item text-center" *ngFor="let foto of lista; let i = index" [class.active]="i === 0">
-              <h2 *ngIf="foto.descricao != '' ">{{ foto.descricao }}</h2>
+              <h5 *ngIf="foto.descricao != '' ">{{ foto.descricao }}</h5>
+              <h5 *ngIf="foto.data != '1900-01-01' ">{{ foto.data | date: 'dd/MM/yyyy' }}</h5>
 
               <div class="d-flex justify-content-center">
                 <img
                   class="img-fluid"
-                  [src]="foto.foto"
+                  [src]="link + foto.foto"
                   [alt]="foto.descricao"
                   style="max-width: 100vw; height: auto; max-height: 80vh; object-fit: contain;"
                 >
@@ -50,6 +59,21 @@
     </div>
   </div>
 
+<div class="ff-inter centralizar">
+  <audio controls>
+    <source src="../../../assets/musica/MusicaTemaAjdvelopments.ogg" type="audio/ogg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+</div>  
+
+<div class="ff-inter centralizar">
+  <button (click)="voltarInicio()" class="btn">
+    Voltar
+  </button>
+  <button (click)="girarSite()"  class="btn">Cair pra trás</button>
+</div>  
+
+</div>
 
 <ng-template #semFotos>
     <div class="ff-inter centralizar">

@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://anajulia.pythonanywhere.com',
+  apiUrl: 'https://anajulia.pythonanywhere.com/aj_',
   apiUrlPagSeguro: 'https://sandbox.api.pagseguro.com',
   apiUrlMercadoPago: 'https://api.mercadopago.com',
   linkSite: 'http://ajdevelopments.com.br',

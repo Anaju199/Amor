@@ -41,17 +41,19 @@ h6 {
   margin: 1rem auto 2rem;
 }
 
+
 .botao {
-  background: #000000;
-  color: #ffffff;
-  max-width: 270px;
-  width: 250px;
-  padding: 1rem;
+  color: #000a02;
+  background-color: #f57878;
   margin: 0 auto;
-  border: 2px solid #000000;
+  padding: 3px;
+  border-color: #f57878;
   border-radius: 10px;
   transition: 0.5s ease;
+  font-size: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 
 .botao_forms {
   color: #ffffff;
@@ -153,6 +155,21 @@ h6 {
   padding: 2rem 0 5rem;
 }
 
+
+.fomulario form label {
+  color: #000000;
+  font-weight: bold;
+}
+
+.fomulario form .input {
+  border: none;
+  height: 40px;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  margin: 0.5rem 0 2rem;
+}
+
+
 .fomulario {
   padding: 0rem 0;
 }
@@ -190,6 +207,15 @@ h6 {
   height: 40px;
   padding: 1rem 2rem;
   border-radius: 20px;
+  margin: 0.5rem 0 2rem;
+}
+
+.fomulario form .inputFile {
+  border: none;
+  height: 50px;
+  padding: 0.8rem 1rem;
+  width: 400px;
+  border-radius: 7px;
   margin: 0.5rem 0 2rem;
 }
 
