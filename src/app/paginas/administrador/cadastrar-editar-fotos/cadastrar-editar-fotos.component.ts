@@ -13,7 +13,6 @@ export class CadastrarEditarFotosComponent {
   id?: number
   formulario!: FormGroup;
   titulo: string = 'Adicione uma nova foto:'
-  capa: boolean = true;
 
   constructor(
     private service: FotosService,
@@ -26,7 +25,7 @@ export class CadastrarEditarFotosComponent {
     this.formulario = this.formBuilder.group({
       id: [],
       descricao: [''],
-      capa: [''],
+      capa: [false],
       data: [''],
       foto: [null]
     })
@@ -38,7 +37,6 @@ export class CadastrarEditarFotosComponent {
 
       this.service.buscarPorId(parseInt(id!)).subscribe((foto) => {
         this.id = foto.id
-        this.capa = foto.capa ? true : false;
 
         this.formulario = this.formBuilder.group({
           id: [foto.id],
@@ -51,21 +49,14 @@ export class CadastrarEditarFotosComponent {
     }
   }
   
-  // toggleCapa(event: any) {
-  //   this.capa = event.target.checked;
-  //   if (this.capa) {
-  //     this.formulario.patchValue({ pai_nome: '' });
-  //   } else {
-  //     this.formulario.patchValue({ pai: null });
-  //   }
-  // }
-
   editarFoto() {
     if(this.formulario.valid){
       const formData = new FormData();
       formData.append('descricao', this.formulario.get('descricao')!.value);
-      formData.append('capa', this.formulario.get('capa')!.value);
+      formData.append('capa', this.formulario.get('capa')!.value ? '1' : '0');
       formData.append('data', this.formulario.get('data')!.value);
+
+      console.log('capa', this.formulario.get('capa')!.value)
 
       const foto = this.formulario.get('foto')!.value;
       if (foto instanceof File) {
@@ -90,7 +81,7 @@ export class CadastrarEditarFotosComponent {
     if (this.formulario.valid) {
       const formData = new FormData();
       formData.append('descricao', this.formulario.get('descricao')!.value);
-      formData.append('capa', this.formulario.get('capa')!.value);
+      formData.append('capa', this.formulario.get('capa')!.value ? '1' : '0');
       formData.append('data', this.formulario.get('data')!.value);
 
       const foto = this.formulario.get('foto')!.value;

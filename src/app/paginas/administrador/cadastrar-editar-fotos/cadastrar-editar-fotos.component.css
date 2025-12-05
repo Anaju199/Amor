@@ -1,0 +1,7 @@
+@media (max-width: 480px) {
+  input[type="date"] {
+    font-size: 18px;
+    height: 50px;
+    padding: 12px;
+  }
+}
