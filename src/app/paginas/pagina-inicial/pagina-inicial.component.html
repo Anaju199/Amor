@@ -9,7 +9,7 @@
   <div class="scatter-grid love-wrapper" *ngIf="listaFotos.length > 0, else semFotos">
     <div *ngFor="let foto of listaFotos">
        <img 
-      [src]="link + foto.foto"
+      [src]="foto.foto"
       class="random-img"
       style="height: 10rem; width: 10rem;"
       [style.transform]="'rotate(' + foto.rotate + 'deg)'"

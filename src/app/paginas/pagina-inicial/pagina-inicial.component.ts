@@ -23,7 +23,7 @@ export class PaginaInicialComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.service.listar(true).subscribe((listaFotos) => {
+    this.service.listar(true, '').subscribe((listaFotos) => {
       this.listaFotos = listaFotos.map(foto => ({
         ...foto,
         rotate: Number((Math.random() * 10) - 5) || 0  

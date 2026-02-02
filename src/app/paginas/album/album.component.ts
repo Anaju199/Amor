@@ -23,7 +23,7 @@ export class AlbumComponent {
 
   
   ngOnInit(): void {
-    this.service.listar(false).subscribe((lista) => {
+    this.service.listar(false, '').subscribe((lista) => {
       this.lista = lista
     });
   }

@@ -13,11 +13,15 @@ private readonly API = environment.apiUrl + 'fotos_amor'
 
   constructor(private http: HttpClient) { }
 
-  listar(filtro: boolean): Observable<Foto[]> {
+  listar(capa: boolean, filtro: string): Observable<Foto[]> {
     let params = new HttpParams()
 
+    if(capa){
+      params = params.set("capa", capa)
+    }
+    
     if(filtro){
-      params = params.set("capa", filtro)
+      params = params.set("filtro", filtro)
     }
 
     const url = `${this.API}/`
@@ -25,7 +29,7 @@ private readonly API = environment.apiUrl + 'fotos_amor'
       map(fotos =>
         fotos.map(foto => ({
           ...foto,
-          foto: foto.foto.replace('http://127.0.0.1:8000/', '').replace('https://anajulia.pythonanywhere.com/','') // remove o domínio
+          foto: foto.foto // remove o domínio
         }))
       )
     );

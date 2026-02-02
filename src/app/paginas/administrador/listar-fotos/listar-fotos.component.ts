@@ -13,6 +13,7 @@ export class ListarFotosComponent {
   @Input() lista: Foto[] = []
 
   link: string = environment.apiUrlImg
+  filtro: string = ''
 
   constructor(
     private service: FotosService,
@@ -21,9 +22,21 @@ export class ListarFotosComponent {
 
 
   ngOnInit(): void {
-    this.service.listar(false).subscribe((lista) => {
+    this.service.listar(false, this.filtro).subscribe((lista) => {
       this.lista = lista
     });
   }
 
+  pesquisar(event: Event) {
+    const target = event.target as HTMLInputElement | HTMLSelectElement;
+
+    if (target.type === 'search') {
+      this.filtro = target.value;
+    }
+
+    this.service.listar(false, this.filtro)
+      .subscribe(lista => {
+        this.lista = lista
+      });
+  }
 }

@@ -8,3 +8,13 @@ export interface Foto {
 }
 
 
+export interface ListaPresente {
+  id: number
+  link: string
+  descricao: string
+  categoria: string
+  data: string
+  nome: string
+}
+
+

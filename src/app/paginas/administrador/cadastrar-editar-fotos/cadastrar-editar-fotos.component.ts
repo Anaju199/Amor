@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { finalize } from 'rxjs';
 import { FotosService } from 'src/app/service/fotos.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class CadastrarEditarFotosComponent {
   id?: number
   formulario!: FormGroup;
   titulo: string = 'Adicione uma nova foto:'
+  isSubmitting = false;
 
   constructor(
     private service: FotosService,
@@ -51,6 +53,8 @@ export class CadastrarEditarFotosComponent {
   
   editarFoto() {
     if(this.formulario.valid){
+      this.isSubmitting = true;
+
       const formData = new FormData();
       formData.append('descricao', this.formulario.get('descricao')!.value);
       formData.append('capa', this.formulario.get('capa')!.value ? '1' : '0');
@@ -64,7 +68,9 @@ export class CadastrarEditarFotosComponent {
       }
 
       const id = this.formulario.get('id')!.value;
-      this.service.editar(id, formData).subscribe(() => {
+      this.service.editar(id, formData).pipe(finalize(() => {
+        this.isSubmitting = false; 
+      })).subscribe(() => {
         alert('Foto editada com sucesso.')
         this.router.navigate(['/listarFotos'])
       }, error => {
@@ -79,6 +85,8 @@ export class CadastrarEditarFotosComponent {
 
   criarFoto() {
     if (this.formulario.valid) {
+      this.isSubmitting = true;
+
       const formData = new FormData();
       formData.append('descricao', this.formulario.get('descricao')!.value);
       formData.append('capa', this.formulario.get('capa')!.value ? '1' : '0');
@@ -89,7 +97,9 @@ export class CadastrarEditarFotosComponent {
         formData.append('foto', foto);
       }
 
-      this.service.criar(formData).subscribe(() => {
+      this.service.criar(formData).pipe(finalize(() => {
+        this.isSubmitting = false; 
+      })).subscribe(() => {
         alert('Foto cadastrada com sucesso.');
         this.router.navigate(['/listarFotos']);
       }, error => {

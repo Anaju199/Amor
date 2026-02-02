@@ -23,6 +23,9 @@ import { AutoResizeTextareaDirective } from './directives/auto-resize-textarea.d
 import { AlbumComponent } from './paginas/album/album.component';
 import { CadastrarEditarFotosComponent } from './paginas/administrador/cadastrar-editar-fotos/cadastrar-editar-fotos.component';
 import { ListarFotosComponent } from './paginas/administrador/listar-fotos/listar-fotos.component';
+import { CadastrarPresentesComponent } from './paginas/administrador/cadastrar-presentes/cadastrar-presentes.component';
+import { ListarPresentesComponent } from './paginas/administrador/listar-presentes/listar-presentes.component';
+import { ListaDePresentesComponent } from './paginas/lista-de-presentes/lista-de-presentes.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,7 +50,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     AutoResizeTextareaDirective,
     AlbumComponent,
     CadastrarEditarFotosComponent,
-    ListarFotosComponent
+    ListarFotosComponent,
+    CadastrarPresentesComponent,
+    ListarPresentesComponent,
+    ListaDePresentesComponent
   ],
   imports: [
     BrowserModule,

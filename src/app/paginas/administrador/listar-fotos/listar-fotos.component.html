@@ -10,11 +10,27 @@
     <i class="fa-regular fa-plus"></i><a href="/cadastrarEditarFotos" class="add"> Adicionar Fotos</a>
   </div>
 </div>
+<div class="container row mx-auto">
+  <div class="col-md-3 align-self-center"></div>
+  <div class="col-md-6 align-self-center">
+      <div class="d-flex" role="search">
+        <input
+          type="search"
+          class="form-control me-2"
+          placeholder="Digite o que procura"
+          autofocus
+          [(ngModel)]="filtro"
+          (keyup)="pesquisar($event)"
+        >
+      </div>
+  </div>
+</div>
 <div class="container">
     <div class="photo-gallery">
         <div class="photo-card" *ngFor="let foto of lista">
             <button class="thumb-btn" aria-label="Editar">
-               <img [src]="link + foto.foto" [alt]="foto.descricao || 'Foto'" loading="lazy" />
+               <img [src]="foto.foto" [alt]="foto.descricao || 'Foto'" loading="lazy" />
+               <!-- <img [src]="link + foto.foto" [alt]="foto.descricao || 'Foto'" loading="lazy" /> -->
             </button>
 
             <div class="caption">
